@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}
+Hjem
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4">Styr gardiner</h1>
+    <hr class="my-4">
+    
+    {% for pin in pins %}
+    <h3 class="form_label"><strong>{{ pins[pin].name }}</strong>
+        <!-- is currently <strong>{{ pins[pin].state }}</strong> -->
+    </h3>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/open/{{pin}}" class="btn btn-outline-primary btn-block" role="button">Åpne</a>
+            <a href="/close/{{pin}}" class="btn btn-outline-primary btn-block" role="button">Lukk</a>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+    <a href="/stop/23" class="btn btn-outline-danger btn-block" role="button">STOP</a>
+
+    <hr class="my-4">
+    <!-- <h4>Set new speed</h4>
+    <form action="{{ url_for('set_speed') }}" method="POST">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Slow</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Standard</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3">Fast</label>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+    <h5>Current: {{ status_msg }}</h4> -->
+        
+
+</div>
+{% endblock %}
